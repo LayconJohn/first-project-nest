@@ -1,5 +1,6 @@
 import { Body, Controller, Delete, Get, NotFoundException, Param, Post, Put } from '@nestjs/common';
 import { Message } from './Message';
+import { MessageDto } from './MessageDto';
 import { MessagesService } from './messages.service';
 
 @Controller('messages')
@@ -19,7 +20,7 @@ export class MessagesController {
     }
 
     @Post()
-    create(@Body() body: Message) {
+    create(@Body() body: MessageDto) {
         return this.messagesService.create(body);
     }
 
