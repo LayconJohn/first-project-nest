@@ -27,7 +27,10 @@ export class PokemonService {
   }
 
   update(id: number, updatePokemonDto: UpdatePokemonDto) {
-    return `This action updates a #${id} pokemon`;
+    return this.prisma.pokemon.update({
+      where: {id},
+      data: {...updatePokemonDto}
+    });
   }
 
   remove(id: number) {
