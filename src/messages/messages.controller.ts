@@ -1,4 +1,5 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Message } from './Message';
 import { MessagesService } from './messages.service';
 
 @Controller('messages')
@@ -16,7 +17,7 @@ export class MessagesController {
     }
 
     @Post()
-    create(@Body() body: any) {
+    create(@Body() body: Message) {
         return this.messagesService.create(body);
     }
 }
