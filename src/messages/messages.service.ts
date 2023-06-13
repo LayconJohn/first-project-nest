@@ -16,4 +16,12 @@ export class MessagesService {
     findAll() {
         return this.messages;
     }
+
+    findById(id: number) {
+        return this.messages.find(message => message.id === id);
+    }
+
+    create(message: {id: number, text: string}) {
+        return this.messages.push(message);
+    }
 }
