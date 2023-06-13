@@ -21,7 +21,9 @@ export class PokemonService {
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} pokemon`;
+    return this.prisma.pokemon.findUnique({
+      where: {id}
+    });
   }
 
   update(id: number, updatePokemonDto: UpdatePokemonDto) {
